@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    <section id="shark-img">
+      <img src="/static/images/guess0.png">
+    </section>
+
+    <a id="play-again" style="display: none;">
+      The shark got you! Click here to play again.
+    </a>
+
+    <section id="word-container"></section>
+
+    <section id="letter-buttons"></section>
+
+    <script>
+      const ALPHABET="abcdefghijklmnopqrstuvwxyz",WORDS=["strawberry","orange","apple","banana","pineapple","kiwi","peach","pecan","eggplant","durian","peanut","chocolate"];!function e(){let t=0;const r=WORDS[Math.floor(Math.random()*WORDS.length)],a=document.querySelector("#word-container"),n=document.querySelector("#letter-buttons");Array.from(r).forEach(e=>{const t=document.createElement("div");t.classList.add("letter-box"),t.classList.add(e),a.append(t)}),Array.from(ALPHABET).forEach(e=>{const t=document.createElement("button");t.innerHTML=e,n.append(t)}),Array.from(document.querySelectorAll("button")).forEach(e=>{e.addEventListener("click",e=>{e.target.setAttribute("disabled",!0);const r=document.querySelectorAll(`div.${e.target.innerHTML}`);0!==r.length?Array.from(r).forEach(t=>{t.innerHTML=e.target.innerHTML}):(t+=1,document.querySelector("#shark-img img").setAttribute("src",`/static/images/guess${t}.png`),5===t&&(Array.from(document.querySelectorAll("button")).forEach(e=>e.setAttribute("disabled",!0)),document.querySelector("#play-again").style.display=""))})}),document.querySelector("#play-again").addEventListener("click",()=>{document.querySelector("#shark-img img").setAttribute("src","/static/images/guess0.png"),document.querySelector("#play-again").style.display="none",Array.from(a.children).forEach(e=>e.remove()),Array.from(n.children).forEach(e=>e.remove()),e()})}();
+    </script>
+  </body>
+</html>
