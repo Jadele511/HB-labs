@@ -20,7 +20,7 @@ let numWrong = 0;
 //
 const createDivsForChars = (word) => {
   // Replace this with your code
-  for (const letter in word) {
+  for (const letter of word) {
     $('#word-container').append(`<div class="letter-box ${letter}"></div>`);
   }
 };
@@ -30,7 +30,7 @@ const createDivsForChars = (word) => {
 const generateLetterButtons = () => {
   // Replace this with your code
   for (const letter of ALPHABET) {
-    $('#letter-buttons').append(`<button> ${letter} </button>`);
+    $('#letter-buttons').append(`<button class=${letter}>${letter}</button>`);
   }
 };
 
@@ -47,12 +47,14 @@ const disableLetterButton = (buttonEl) => {
 //
 const isLetterInWord = (letter) => {
   // Replace this with your code
+  return $(`div.${letter}`)[0] !== undefined;
 };
 
 // Called when `letter` is in word. Update contents of divs with `letter`.
 //
 const handleCorrectGuess = (letter) => {
   // Replace this with your code
+  $(`div.${letter}`).html(letter);
 };
 
 // Called when `letter` is not in word.
@@ -62,6 +64,15 @@ const handleCorrectGuess = (letter) => {
 //
 const handleWrongGuess = () => {
   // Replace this with your code
+  if (numWrong === 5) {
+    disableLetterButton('button');
+    $('a#play-again').show();
+  }
+  else {
+    numWrong += 1
+    $('img').attr('src', `/static/images/guess${numWrong}.png`)
+  }
+
 };
 
 //  Reset game state. Called before restarting the game.
