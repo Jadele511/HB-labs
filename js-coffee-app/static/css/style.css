@@ -1,0 +1,81 @@
+body {
+  width: 650px;
+  margin: 0 auto;
+  font-family: 'Helvetica', sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template:
+    'menu cart' minmax(200px, auto)
+    'status status' auto / 1fr 1fr;
+  margin-bottom: 100px;
+}
+
+#menu {
+  grid-area: menu;
+  margin-right: 1em;
+}
+
+#your-cart {
+  grid-area: cart;
+}
+
+#order-status {
+  grid-area: status;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th {
+  text-align: left;
+  padding: 0.25em;
+}
+
+thead tr {
+  background: green;
+  color: white;
+}
+
+td {
+  padding: 0.5em 0.25em;
+}
+
+.add-to-order, #place-order {
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+#cart-total:before {
+  content: '$';
+}
+
+#menu tbody tr td:nth-child(2):before {
+  content: '$';
+}
+
+#order-status div {
+  padding: 0 1em;
+}
+
+#order-progress {
+  width: 100%;
+}
+
+#order-status-message {
+  text-align: center;
+  font-style: italic;
+}
+
+#your-cart h2 {
+  display: grid;
+  grid-template: 'total place' auto / 1fr 1fr;
+}

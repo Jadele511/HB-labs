@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script
+      src="http://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Our Coffee Shop!</h1>
+      <p>
+        We've proudly served <span id="coffee-sold-counter">0</span>
+        cups of coffee.
+      </p>
+    </header>
+
+    <main>
+      <section id="menu">
+        <h1>Menu</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th colspan="2">Price</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Coffee</td>
+              <td>1.50</td>
+              <td>
+                <button class="add-to-order">
+                  Add to cart
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="your-cart">
+        <h1>Your Cart</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+            </tr>
+          </thead>
+
+          <tbody id="cart-items"></tbody>
+        </table>
+
+        <h2>
+          <div>
+            Total: <span id="cart-total">0.00</span>
+          </div>
+          <div>
+            <button id="place-order">Place Order</button>
+          </div>
+        </h2>
+      </section>
+
+      <section id="order-status">
+        <h1>Order Status</h1>
+        <div>
+          <progress id="order-progress" max="100" value="0"></progress>
+
+          <p id="order-status-message"></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/js/coffeeShop.js"></script>
+  </body>
+</html>
